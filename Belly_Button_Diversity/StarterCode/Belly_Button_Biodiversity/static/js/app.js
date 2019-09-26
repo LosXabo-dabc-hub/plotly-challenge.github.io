@@ -17,41 +17,18 @@ function buildMetadata(sample) {
       metadatapanel.append("p").text(`${key}: ${value}`);
     });
   });
-} 
+  
+
 
     // BONUS: Build the Gauge Chart
     // buildGauge(data.WFREQ);
+}
+
 
 function buildCharts(sample) {
 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
-  d3.json("/samples/${sample}").then((data) => {
-    const otu_ids = data.otu_ids;
-    const otu_lables = data.otu_labels;
-    const sample_values = data.sample_values;
 
-    var bubbleLayout = {
-      margin: { t: 0 },
-      hovermode: "closest",
-      xaxis: { title: "OTU ID" }
-    };
-    var bubbleData = [
-      {
-        x: otu_ids,
-        y: sample_values,
-        text: otu_lables,
-        mode: "markers",
-        marker: {
-          size: sampleValues,
-          color: otu_ids,
-          colorscale: "Rainbow"
-      },
-
-    }
-
-
-
-    metadatapanel = d3.select("#sample-metadata");
     // @TODO: Build a Bubble Chart using the sample data
 
     // @TODO: Build a Pie Chart
