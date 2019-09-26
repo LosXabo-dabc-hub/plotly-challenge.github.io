@@ -42,8 +42,10 @@ function buildCharts(sample) {
         text: otu_lables,
         mode: "markers",
         marker: {
-          
-        }
+          size: sampleValues,
+          color: otu_ids,
+          colorscale: "Rainbow"
+      },
 
     }
 
