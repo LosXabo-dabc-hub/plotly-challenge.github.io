@@ -13,11 +13,16 @@ function buildMetadata(sample) {
       // Use `Object.entries` to add each key and value pair to the panel
     Object.entries(data).forEach(([key, value]) => {
       metadatapanel.append("p").text(`${key}: ${value}`);
+
+    buildGauge(data.WFREQ);
+
     });
   });
 
     // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
+   // buildGauge(data.WFREQ);
+   
+
 }
 
 
@@ -68,7 +73,31 @@ function buildCharts(sample) {
       Plotly.newPlot('pie', data);
 
     });
-  });   
+
+
+
+     
+
+  });
+
+
+
+}
+
+
+function buildGauge(wfreq) {
+  var data = [
+    {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: wfreq,
+        title: { text: "Scrubs per week" },
+        type: "indicator",
+        mode: "gauge+number"
+    }
+];
+
+var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+Plotly.newPlot('gauge', data, layout);
 }
 
 
